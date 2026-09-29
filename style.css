@@ -1,0 +1,212 @@
+:root {
+    --primary-color: #8acbc4; /* Azul esverdeado suave */
+    --secondary-color: #fca3b7; /* Rosa suave */
+    --text-color: #555;
+    --card-bg: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    
+    /* Fundo degradê colorido animado */
+    background: linear-gradient(-45deg, #e0f2f1, #fff9c4, #e3f2fd, #fce4ec);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Figurinhas Flutuantes */
+.sticker {
+    position: absolute;
+    font-size: 3rem;
+    animation: float 6s ease-in-out infinite;
+    z-index: 0;
+    opacity: 0.8;
+    user-select: none;
+}
+
+.s1 { top: 5%; left: 10%; animation-delay: 0s; font-size: 3.5rem; }
+.s2 { top: 15%; right: 10%; animation-delay: 1.5s; font-size: 4rem; }
+.s3 { bottom: 10%; left: 15%; animation-delay: 3s; font-size: 3rem; }
+.s4 { bottom: 15%; right: 15%; animation-delay: 4.5s; font-size: 3.5rem; }
+.s5 { top: 40%; left: 5%; animation-delay: 2s; font-size: 2.5rem; }
+.s6 { top: 55%; right: 8%; animation-delay: 3.5s; font-size: 3.2rem; }
+.s7 { top: 80%; left: 45%; animation-delay: 1s; font-size: 2rem; }
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(15deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.container {
+    max-width: 600px;
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive;
+    color: #ff9800; /* Laranja divertido */
+    font-size: 3.8rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: #666;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 25px;
+    padding: 40px 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border-top: 8px solid var(--primary-color);
+    border-bottom: 8px solid var(--secondary-color);
+}
+
+.card h2 {
+    font-size: 1.6rem;
+    margin: 0;
+    color: #888;
+}
+
+.name {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: #4fc3f7; /* Azul claro vibrante */
+    margin: 10px 0 5px 0;
+}
+
+.parents {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.info p {
+    font-size: 1.2rem;
+    margin: 12px 0;
+}
+
+.actions {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 80%;
+    max-width: 320px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.btn.rsvp {
+    background-color: #66bb6a; /* Verde alegre */
+    color: white;
+}
+
+.btn.registry {
+    background-color: #ffd54f; /* Amarelo alegre */
+    color: #555;
+}
+
+/* Modal styles (Janelinha de presentes) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 20vh auto;
+    padding: 30px;
+    border-radius: 25px;
+    width: 85%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    animation: bounceIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 4px solid var(--secondary-color);
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.modal-content h3 {
+    color: var(--primary-color);
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+.modal-content p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    color: var(--text-color);
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: var(--secondary-color);
+}
+
+@media (max-width: 480px) {
+    header h1 { font-size: 3rem; }
+    .name { font-size: 2.5rem; }
+    .card { padding: 30px 15px; }
+    .sticker { font-size: 2rem; }
+}

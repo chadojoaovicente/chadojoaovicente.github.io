@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chá de Bebê - João Vicente</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Figurinhas flutuantes -->
+    <div class="sticker s1">🧸</div>
+    <div class="sticker s2">🍼</div>
+    <div class="sticker s3">🐣</div>
+    <div class="sticker s4">🎈</div>
+    <div class="sticker s5">👣</div>
+    <div class="sticker s6">👶</div>
+    <div class="sticker s7">⭐</div>
+
+    <div class="container">
+        <header>
+            <h1>Chá de Bebê</h1>
+            <p class="subtitle">Estamos muito felizes em compartilhar esse momento com você!</p>
+        </header>
+
+        <section class="details">
+            <div class="card">
+                <h2>Vem aí...</h2>
+                <p class="name">João Vicente</p>
+                <p class="parents">Com muito amor, papais João Pedro e Jeniffer ❤️</p>
+                
+                <div class="info">
+                    <p><strong>Data:</strong> 09 de Outubro </p>
+                    <p><strong>Hora:</strong> 20:00</p>
+                    <p><strong>Local:</strong> Container do GrupoKoch, atrás da loja do Komprão bairro Morretes</p>
+                </div>
+
+                <div class="actions">
+                    <a href="#" class="btn registry">Lista de Presentes 🎁</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal da Lista de Presentes -->
+    <div id="giftModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Lista de Presentes 🎁</h3>
+        <p>🍼 Fraldas tamanhos <strong>M e G</strong></p>
+        <p>✨ Lenço umedecido</p>
+        <p>🧸 Itens para bebês em geral</p>
+      </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("giftModal");
+        var btn = document.querySelector(".registry");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function(e) {
+            e.preventDefault();
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
